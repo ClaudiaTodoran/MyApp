@@ -1,0 +1,178 @@
+body {
+	background: url('../img/bg.jpg') repeat-x fixed center top;
+	font-family: Verdana;
+	font-size: 12px;
+	margin: 0px;		
+}
+
+.main{	
+	padding: 0 10px;		
+	margin: 0 auto;
+	margin-top: 0px;
+	border: 0px;	
+	width: 970px;	
+	height: 100%;	
+	background: white;	
+	
+}
+
+#header{
+	padding-top: 20px;	
+	width: 950px;
+	height: 150px;
+}
+
+.container{
+	margin: 50px auto;
+	width: 640px;
+	border-radius: 2px;
+}
+
+.login{
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 20px 20px;
+	width: 310px;
+	background: #004A91;
+	border-radius: 8px;
+}
+
+.login p.submit{
+	text-align: right;
+}
+
+.login-help{
+	margin: 20px 0;
+	font-size: 11px;
+	color: #E2007A;
+	text-align: center;
+	text-shadow: 0 1px #2a85a1;
+}
+
+.login-help a{
+	color: #004A91;
+	text-decoration: none;
+}
+
+login-help a:hover{
+	color: #E2007A;
+	text-decoration: underline;
+}
+
+::-webkit-input-placeholder {
+  color: #E2007A;
+  font-size: 13px;  
+  text-shadow: 0 1px E2007A;
+}
+
+.login:before{
+	position: absolute;
+	top:-8px;
+	right: -8px;
+	bottom: -8px;
+	left: -8px;
+	z-index: -1;
+	background: red;
+	border-radius: 4px;
+}
+
+.login h1{
+	margin: -20px -20px 20px;
+	line-height: 40px;	
+	font-size: 18px;	
+	color: #004A91;
+	text-align: center;		
+	background: #E2007A;
+	border-bottom: 1px solid #cfcfcf;
+	border-radius: 8px 8px 0 0;		
+  		
+}
+
+.login p {
+  	margin: 20px 0 0;
+}
+
+.login p:first-child {
+  	margin-top: 0;
+}
+
+
+.login input[type=text], .login input[type=password] {
+  	width: 278px;
+}
+
+
+.login p.remember_me{
+	float:left;
+	line-height: 31px;
+}
+
+.login p.remember_me label {
+	font-size: 12px;
+	color: #B6B6B6;
+	cursor: pointer;
+}
+
+.login p.remember_me input {
+  	position: relative;
+  	bottom: 1px;
+	margin-right: 4px;
+	vertical-align: middle;
+}
+
+input {
+  	font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  	font-size: 14px;
+}
+ 
+input[type=text], input[type=password] {
+  	margin: 5px;
+  	padding: 0 10px;
+  	width: 200px;
+  	height: 34px;
+  	color: #004A91;
+  	background: white;
+  	border: 1px solid;
+  	border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  	border-radius: 2px;    
+}
+ 
+input[type=text]:focus, input[type=password]:focus {
+ 	color: #004A91; 
+}
+ 
+input[type=submit] {
+  	padding: 0 18px;
+  	height: 29px;
+  	font-size: 12px;
+  	font-weight: bold;
+  	color: #004A91;  
+  	background: #EBEBEB;
+  	border: 1px solid;
+  	border-color: #C0C0C0;
+  	border-radius: 7px;  
+}
+
+input[type=submit]:active {
+  	color: #E2007A;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
