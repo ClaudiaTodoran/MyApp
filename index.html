@@ -4,10 +4,71 @@
 	<title>My app</title>
 	<link rel="stylesheet" type="text/css" href="css/form.css">
 
-	<link rel="stylesheet" type="text/css" href="css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
-	<link rel="stylesheet" type="text/css" href="css/custom.css" />
-	<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+	<!-- necesare pt slideshow -->
+	<link rel="stylesheet" href="css/default-five-slides.css" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="jquery.flexslider-min.js"></script>
+
+	<script src="css3-mediaqueries.js"></script>
+	
+	<!-- Kwiks pieces -->
+	<script src="kwiks.js"></script>
+	
+	<!-- Includes for this demo -->
+	<link rel="stylesheet" href="css/slide.css" type="text/css" media="screen" />
+	
+	<!-- Hook up the FlexSlider -->
+	<script type="text/javascript">
+		var Main = Main || {};
+
+		jQuery(window).load(function() {
+			window.responsiveFlag = jQuery('#responsiveFlag').css('display');
+			Main.gallery = new Gallery();
+			
+			jQuery(window).resize(function() {
+				Main.gallery.update();
+			});
+		});
+
+		function Gallery(){
+			var self = this,
+				container = jQuery('.flexslider'),
+				clone = container.clone( false );
+				
+			this.init = function (){
+				if( responsiveFlag == 'block' ){
+					var slides = container.find('.slides');
+					
+					slides.kwicks({
+						max : 500,
+						spacing : 0
+					}).find('li > a').click(function (){
+						return false;
+					});
+				} else {
+					container.flexslider();
+				}
+			}
+			this.update = function () {
+				var currentState = jQuery('#responsiveFlag').css('display');
+				
+				if(responsiveFlag != currentState) {
+				
+					responsiveFlag = currentState;
+					container.replaceWith(clone);
+					container = clone;
+					clone = container.clone( false );
+					
+					this.init();	
+				}
+			}
+			
+			this.init();
+		}
+	</script>
+
+	
+
 </head>
 <body>
 	<div class="main" >
@@ -18,184 +79,49 @@
 			</div>			
 		</div>
 
-		<div class="container">
-			<div class="login">
-				<h1>Login</h1>
-				<form method="post" action="">
-					<p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-					<p><input type="password" name="password" value="" placeholder="Password"></p>
-					<p class="remember_me">
-						<label>
-								<input type="checkbox" name="remember_me" id="remember_me">
-								Remember me on this computer			
-						</label>
-					</p>
-					<p class="submit">
-						<input type="submit" name="commit" value="Login">
-					</p>	
-				</form>				
-			</div>
-
-			<div class="login-help">
-				<p>Forgot your password? <a href="#">Click here to reset it.</a></p>
-			</div>
-		</div>
-
-
-
-
-<div class="wrapper">
-	<ul id="sb-slider" class="sb-slider">
-		<li>
-			<img src="images/1.jpg" alt="image1" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Creative Lifesaver</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/2.jpg" alt="image2" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Honest Entertainer</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/3.jpg" alt="image1" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Brave Astronaut</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/4.jpg" alt="image1" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Affectionate Decision Maker</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/5.jpg" alt="image1" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Faithful Investor</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/6.jpg" alt="image1" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Groundbreaking Artist</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/7.jpg" alt="image1" class="slide"/></a>
-			<div class="sb-description">
-				<h3>Selfless Philantropist</h3>
-			</div>
-		</li>
-		<li>
-			<img src="images/9.jpg" alt="image1" class="slide" /></a>
-			<div class="sb-description">
-				<h3>Selfless Philantropist</h3>
-			</div>
-		</li>
-	</ul>
-
-	<div id="shadow" class="shadow"></div>
-
-	<div id="nav-arrows" class="nav-arrows">
-		<a href="#">Next</a>
-		<a href="#">Previous</a>
+		<div class="flexslider">
+			<ul class="slides">
+				<li>
+					<img src="img/images-slide/1.jpg" class="slide"/>
+					<div class="flex-caption">
+						<h3>Why Yonder?</h3>
+						<p>So why do we think we are different from other outsourcing companies? Why should you choose Yonder?</p>
+					</div>
+				</li>
+				<li>
+					<a href="#"><img src="img/images-slide/2.jpg" class="slide"/></a>
+					<div class="flex-caption">
+						<h3>List of books - Yonder library</h3>
+						<p></p>
+					</div>
+				</li>
+				<li>
+					<img src="img/images-slide/3.gif" class="slide"/>
+					<div class="flex-caption">
+						<h3>Employees</h3>
+						<p></p>
+					</div>
+				</li>
+				<li>
+					<img src="img/images-slide/4.jpg" class="slide"/>
+					<div class="flex-caption">
+						<h3>Certificates</h3>
+						<p></p>
+					</div>
+				</li>
+				<li>
+					<img src="img/images-slide/5.jpg" class="slide"/>
+					<div class="flex-caption">
+						<h3>Latest news</h3>
+						<p></p>
+					</div>
+				</li>
+			</ul>
+	  </div>
 	</div>
-
-	<div id="nav-dots" class="nav-dots">
-		<span class="nav-dot-current"></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-		<span></span>
-	</div>
+	<span id="responsiveFlag"></span>
+	
+	<div> </div>	
 </div>
-</div>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.slicebox.js"></script>
-
-<script type="text/javascript">
-	$(function() {
-
-		var Page = (function() {
-
-			var $navArrows = $( '#nav-arrows' ).hide(),
-				$navDots = $( '#nav-dots' ).hide(),
-				$nav = $navDots.children( 'span' ),
-				$shadow = $( '#shadow' ).hide(),
-				slicebox = $( '#sb-slider' ).slicebox( {
-					onReady : function() {
-
-						$navArrows.show();
-						$navDots.show();
-						$shadow.show();
-
-					},
-					onBeforeChange : function( pos ) {
-
-						$nav.removeClass( 'nav-dot-current' );
-						$nav.eq( pos ).addClass( 'nav-dot-current' );
-
-					}
-				} ),
-				
-				init = function() {
-
-					initEvents();
-					
-				},
-				initEvents = function() {
-
-					// add navigation events
-					$navArrows.children( ':first' ).on( 'click', function() {
-
-						slicebox.next();
-						return false;
-
-					} );
-
-					$navArrows.children( ':last' ).on( 'click', function() {
-						
-						slicebox.previous();
-						return false;
-
-					} );
-
-					$nav.each( function( i ) {
-					
-						$( this ).on( 'click', function( event ) {
-							
-							var $dot = $( this );
-							
-							if( !slicebox.isActive() ) {
-
-								$nav.removeClass( 'nav-dot-current' );
-								$dot.addClass( 'nav-dot-current' );
-							
-							}
-							
-							slicebox.jump( i + 1 );
-							return false;
-						
-						} );
-						
-					} );
-
-				};
-
-				return { init : init };
-
-		})();
-
-		Page.init();
-
-	});
-</script>
-
 </body>
 </html>
